@@ -56,18 +56,18 @@ public enum RomanArabic {
         List<RomanArabic> romanNumerals = RomanArabic.getReverseSortedValues();
 
         int i = 0;
-        StringBuilder sb = new StringBuilder();
+        StringBuilder outPut = new StringBuilder();
 
         while ((number > 0) && (i < romanNumerals.size())) {
             RomanArabic currentSymbol = romanNumerals.get(i);
             if (currentSymbol.getValue() <= number) {
-                sb.append(currentSymbol.name());
+                outPut.append(currentSymbol.name());
                 number -= currentSymbol.getValue();
             } else {
                 i++;
             }
         }
 
-        return sb.toString();
+        return outPut.toString();
     }
 }

@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -6,12 +8,13 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Добро пожаловать\nВведите выражение :");
         Scanner scanner = new Scanner(System.in);
-        String userInput = scanner.next();
+        String userInput = scanner.nextLine();
         System.out.println(calc(userInput));
     }
     public static String calc(String input) {
         String operator = getOperator(input);
-        int [] numbers = StringToNumber(input.split("[^ivxIVX1234567890]"));
+        int[] numbers;
+        numbers = StringToNumber(input.replace(" ", "").split("[^ivxIVX1234567890]"));
         Calculation(numbers, operator);
         return Calculation(numbers, operator);
     }
@@ -44,6 +47,7 @@ public class Main {
     private static int[] StringToNumber(String[] temp) {
         int a = 0;
         int b = 0;
+        System.out.println(Arrays.toString(temp));
         try {
             a = Integer.parseInt(temp[0]);
             b = Integer.parseInt(temp[1]);
@@ -60,9 +64,9 @@ public class Main {
     }
 
     private static String getOperator(String input) {
-        String operatorsLibary = "+-*/";
+        String operatorsLib = "+-*/";
         String operatorVal = null;
-        for (char i : operatorsLibary.toCharArray()) {
+        for (char i : operatorsLib.toCharArray()) {
             if (input.indexOf(i) != -1) {
                 if (operatorVal==null)
                     operatorVal = String.valueOf(i);

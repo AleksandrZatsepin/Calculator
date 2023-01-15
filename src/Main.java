@@ -10,9 +10,7 @@ public class Main {
         System.out.println(calc(userInput));
     }
     public static String calc(String input) {
-        float result = 0;
         String operator = getOperator(input);
-        String[] valuesArray = input.split("\\D");
         int [] numbers = StringToNumber(input.split("[^ivxIVX1234567890]"));
         Calculation(numbers, operator);
         return Calculation(numbers, operator);

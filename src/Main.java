@@ -1,5 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -45,9 +43,12 @@ public class Main {
     }
 
     private static int[] StringToNumber(String[] temp) {
+        if (temp.length>2){
+            throw new IllegalArgumentException(" два положительных числа от 0 до 10, " +
+                    "между ними нужный оператор, вы точно понимаете как работает этот калькулятор?");
+        }
         int a = 0;
         int b = 0;
-        System.out.println(Arrays.toString(temp));
         try {
             a = Integer.parseInt(temp[0]);
             b = Integer.parseInt(temp[1]);
